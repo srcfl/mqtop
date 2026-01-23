@@ -36,7 +36,9 @@ pub fn render_messages(frame: &mut Frame, app: &mut App, area: Rect) {
     let message_count = app.get_current_messages().len();
     if message_count > 0 {
         let visible_height = chunks[0].height as usize;
-        let selected = app.selected_message_index.min(message_count.saturating_sub(1));
+        let selected = app
+            .selected_message_index
+            .min(message_count.saturating_sub(1));
 
         if selected < app.message_scroll {
             app.message_scroll = selected;
